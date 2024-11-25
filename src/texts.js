@@ -36,7 +36,7 @@ export const DEGREES = [
       "Direkt im Anschluss studierte ich ebenfalls an der HTWG-Konstanz den Master-Studiengang Elektrische Systeme. Den Schwerpunkt habe ich dabei auf Embedded Software Engineering gelegt.",
       'Thema der Masterarbeit war die "Erweiterung eines Technologie Demonstrators um ein Industrie 4.0 Interface".',
     ],
-    imgUrl: "./images/htwg_konstanz.jpg",
+    imgUrl: "./images/htwg_konstanz_2.jpg",
     imgTitle:
       "Hochschule für Technik Wirtschaft und Gestaltung Konstanz (HTWG-Konstanz)",
     imgAlt: "Hochschulgebäude",
