@@ -126,4 +126,18 @@ section.odd {
 
 #thomas-avatar {
   border-radius: var(--border-radius);
+  margin-top: 60px;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: #2f777c;
+  z-index: 2147483647;
+}
+.navbar a {
+  color: white;
+}
+.container-fluid {
+  background-color: #2f777c;
 }

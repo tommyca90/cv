@@ -14,11 +14,22 @@ import "react-multi-carousel/lib/styles.css";
 
 function App() {
   var counter = 0;
+  const navbarEntries = [
+    { title: "Ausbildung", link: "/#education" },
+    { title: "Arbeitserfahrung", link: "/#experience" },
+    { title: "Fortbildungen", link: "/#trainings" },
+    { title: "Arbeitsproben", link: "/#samples" },
+    { title: "Fähigkeiten", link: "/#skills" },
+    { title: "Technologien", link: "/#technologies" },
+    { title: "Werkzeuge", link: "/#tools" },
+    { title: "Interessen", link: "/#hobbies" },
+  ];
   return (
     <div className="App">
+      <Navbar entries={navbarEntries} />
       {/* <header className="header">Thomas' CV</header> */}
       <Hero idx={counter++} />
-      <Section title="Ausbildung" idx={counter++}>
+      <Section id="education" title="Ausbildung" idx={counter++}>
         {DEGREES.map((degree, idx) => (
           <>
             <SubSectionPair
@@ -44,7 +55,7 @@ function App() {
           </>
         ))}
       </Section>
-      <Section title="Arbeitserfahrung" idx={counter++}>
+      <Section id="experience" title="Arbeitserfahrung" idx={counter++}>
         {WORK_EXPERIENCES.map((workExperience, idx) => (
           <>
             <SubSectionPair
@@ -69,10 +80,14 @@ function App() {
           </>
         ))}
       </Section>
-      <Section title="Fortbildungen" idx={counter++}>
+      <Section id="trainings" title="Fortbildungen" idx={counter++}>
         <SubSectionGrid articles={TRAININGS} />
       </Section>
-      <Section title="Arbeitsproben App & Full-Stack" idx={counter++}>
+      <Section
+        id="samples"
+        title="Arbeitsproben App & Full-Stack"
+        idx={counter++}
+      >
         <SubSectionPair
           article={
             <Article
@@ -162,16 +177,16 @@ function App() {
           </Carousel>
         </SubSectionPair>
       </Section>
-      <Section title="Fähigkeiten" idx={counter++}>
+      <Section id="skills" title="Fähigkeiten" idx={counter++}>
         <SubSectionFeatures features={SKILLS} />
       </Section>
-      <Section title="Technologien" idx={counter++}>
+      <Section id="technologies" title="Technologien" idx={counter++}>
         <SubSectionFeatures features={TECHNOLOGIES} />
       </Section>
-      <Section title="Werkzeuge" idx={counter++}>
+      <Section id="tools" title="Werkzeuge" idx={counter++}>
         <SubSectionFeatures features={TOOLS} />
       </Section>
-      <Section title="Interessen" idx={counter++}>
+      <Section id="hobbies" title="Interessen" idx={counter++}>
         <SubSectionFeatures features={HOBBIES} />
       </Section>
       <footer className="footer"></footer>
@@ -209,10 +224,10 @@ function Hero({ idx }) {
   );
 }
 
-function Section({ title, idx, className, children }) {
+function Section({ id, title, idx, className, children }) {
   var isOdd = idx % 2;
   return (
-    <section className={`${isOdd && "odd"} ${className}`}>
+    <section id={id} className={`${isOdd && "odd"} ${className}`}>
       <div className="container col-xxl-8 px-4">
         <div className="row flex-lg-row py-3">
           <h2>{title}</h2>
@@ -313,5 +328,47 @@ function Feature({ title, description, icon }) {
       <h3 className="fs-2">{title}</h3>
       <p>{description}</p>
     </li>
+  );
+}
+
+function Navbar({ entries }) {
+  return (
+    <nav className="navbar navbar-expand-lg">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="./">
+          Thomas' CV
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {entries.map((entry) => (
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  aria-current="page"
+                  href={entry.link}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.replace(entry.link);
+                  }}
+                >
+                  {entry.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
