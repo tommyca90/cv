@@ -138,6 +138,13 @@ section.odd {
 .navbar a {
   color: white;
 }
+.navbar-toggler {
+  color: white;
+}
+.navbar-toggler-icon {
+  color: white;
+  background-color: whtie;
+}
 .container-fluid {
   background-color: #2f777c;
 }

@@ -31,53 +31,51 @@ function App() {
       <Hero idx={counter++} />
       <Section id="education" title="Ausbildung" idx={counter++}>
         {DEGREES.map((degree, idx) => (
-          <>
-            <SubSectionPair
-              idx={idx}
-              isLast={idx === DEGREES.length - 1}
-              article={
-                <Article
-                  title={degree.title}
-                  dateStart={degree.dateStart}
-                  dateEnd={degree.dateEnd}
-                  paragraphs={degree.paragraphs}
-                />
-              }
-              image={
-                <img
-                  className="article-img"
-                  src={degree.imgUrl}
-                  title={degree.imgTitle}
-                  alt={degree.imgAlt}
-                />
-              }
-            />
-          </>
+          <SubSectionPair
+            key={idx}
+            idx={idx}
+            isLast={idx === DEGREES.length - 1}
+            article={
+              <Article
+                title={degree.title}
+                dateStart={degree.dateStart}
+                dateEnd={degree.dateEnd}
+                paragraphs={degree.paragraphs}
+              />
+            }
+            image={
+              <img
+                className="article-img"
+                src={degree.imgUrl}
+                title={degree.imgTitle}
+                alt={degree.imgAlt}
+              />
+            }
+          />
         ))}
       </Section>
       <Section id="experience" title="Arbeitserfahrung" idx={counter++}>
         {WORK_EXPERIENCES.map((workExperience, idx) => (
-          <>
-            <SubSectionPair
-              idx={idx}
-              article={
-                <Article
-                  title={workExperience.title}
-                  dateStart={workExperience.dateStart}
-                  dateEnd={workExperience.dateEnd}
-                  paragraphs={workExperience.paragraphs}
-                />
-              }
-              image={
-                <img
-                  className="article-img downscale"
-                  src={workExperience.imgUrl}
-                  title={workExperience.imgTitle}
-                  alt={workExperience.imgAlt}
-                />
-              }
-            />
-          </>
+          <SubSectionPair
+            key={idx}
+            idx={idx}
+            article={
+              <Article
+                title={workExperience.title}
+                dateStart={workExperience.dateStart}
+                dateEnd={workExperience.dateEnd}
+                paragraphs={workExperience.paragraphs}
+              />
+            }
+            image={
+              <img
+                className="article-img downscale"
+                src={workExperience.imgUrl}
+                title={workExperience.imgTitle}
+                alt={workExperience.imgAlt}
+              />
+            }
+          />
         ))}
       </Section>
       <Section id="trainings" title="Fortbildungen" idx={counter++}>
@@ -264,7 +262,7 @@ function SubSectionGrid({ articles }) {
         }}
       >
         {articles.map((article, idx) => (
-          <div className="col-12 col-lg-6 justify-center">
+          <div key={article.title} className="col-12 col-lg-6 justify-center">
             <Article
               key={article.title}
               className="tile"
@@ -296,8 +294,10 @@ function Article({ className, title, dateStart, dateEnd, paragraphs, idx }) {
         {dateStart}
         {dateEnd !== undefined && ` - ${dateEnd}`}
       </p>
-      {paragraphs.map((paragraph) => (
-        <p className="article-text">{paragraph}</p>
+      {paragraphs.map((paragraph, idx) => (
+        <p key={idx} className="article-text">
+          {paragraph}
+        </p>
       ))}
     </div>
   );
@@ -310,6 +310,7 @@ function SubSectionFeatures({ features }) {
         <ul className="row g-4 py-5 row-cols-1 row-cols-lg-3">
           {features.map((feature) => (
             <Feature
+              key={feature.title}
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
@@ -332,10 +333,14 @@ function Feature({ title, description, icon }) {
 }
 
 function Navbar({ entries }) {
+  function jumpToSection(e) {
+    e.preventDefault();
+    window.location.replace(e.target.hash);
+  }
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="./">
+        <a className="navbar-brand" href="./" onClick={jumpToSection}>
           Thomas' CV
         </a>
         <button
@@ -352,15 +357,12 @@ function Navbar({ entries }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {entries.map((entry) => (
-              <li className="nav-item">
+              <li key={entry.link} className="nav-item">
                 <a
                   className="nav-link"
                   aria-current="page"
                   href={entry.link}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.location.replace(entry.link);
-                  }}
+                  onClick={jumpToSection}
                 >
                   {entry.title}
                 </a>
