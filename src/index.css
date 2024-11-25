@@ -122,6 +122,7 @@ section.odd {
   background-color: #006f3d;
   color: white;
   border-radius: var(--border-radius);
+  padding: 1rem;
 }
 
 #thomas-avatar {
