@@ -227,10 +227,10 @@ function SubSectionPair({ article, image, idx, isLast, children }) {
   const isOdd = idx % 2 === 1;
   return (
     <div className={`sub-section row flex-lg-row ${isLast && "last"}`}>
-      <div className="col-10 col-sm-8 col-lg-6 justify-center">
+      <div className="col-12 col-lg-6 justify-center">
         {isOdd ? image : article}
       </div>
-      <div className="col-10 col-sm-8 col-lg-6 justify-center">
+      <div className="col-12 col-lg-6 justify-center">
         {isOdd ? article : image}
       </div>
       {children && <div className="child">{children}</div>}
@@ -249,7 +249,7 @@ function SubSectionGrid({ articles }) {
         }}
       >
         {articles.map((article, idx) => (
-          <div className="col-10 col-sm-8 col-lg-6 justify-center">
+          <div className="col-12 col-lg-6 justify-center">
             <Article
               key={article.title}
               className="tile"
