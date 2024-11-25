@@ -1,13 +1,129 @@
+:root {
+  --border-radius: 6px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #088395;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: #37b7c3;
+}
+
+ul li {
+  list-style: none;
+  padding-left: 0;
+}
+
+section {
+  background-color: #dbf4f6;
+}
+section.odd {
+  background-color: #ebf4f6;
+}
+
+.sub-section {
+  background-color: #ffffff9f;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.sub-section.last {
+  margin-bottom: 0rem;
+}
+.sub-section.child {
+  margin-top: 1rem;
+}
+
+.article {
+  border-radius: var(--border-radius);
+  margin: 0.5rem;
+}
+.article.primary {
+  background-color: #d4f5eb;
+}
+.article.secondary {
+  background-color: #bce9e7;
+}
+.article.tertiary {
+  background-color: #bcdce9;
+}
+.article-img {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+.article-img.downscale {
+  object-fit: scale-down;
+}
+
+.carousel-flutter {
+  width: 400px;
+}
+.carousel-flutter img {
+  width: 100%;
+  object-fit: scale-down;
+  border-radius: var(--border-radius);
+}
+.carousel-pmt img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  object-fit: scale-down;
+}
+
+.article-text {
+  text-align: justify;
+}
+
+.justify-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tile {
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  background-color: white;
+}
+.tile.even {
+  background-color: #dbf4f6;
+}
+
+.mint-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 95%;
+  background-color: #006f3d;
+  color: white;
+  border-radius: var(--border-radius);
+}
+
+#thomas-avatar {
+  border-radius: var(--border-radius);
 }
