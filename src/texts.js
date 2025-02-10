@@ -74,7 +74,7 @@ export const WORK_EXPERIENCES = [
     dateEnd: "März 2024",
     paragraphs: [
       "Die Bernina International AG produziert High-End Näh- und Stickmaschinen für die private und semi-professionelle Nutzung.",
-      "Als Software Engineer war ich für die Erweiterung des bereits bestehenden Bernina Software Frameworks (C++14) um Kamera und Scanner Komponenten verantwortlich die mit der Bernina B990 auf den Markt kommen werden.",
+      "Als Software Engineer war ich für die Erweiterung des bereits bestehenden Bernina Software Frameworks (C++14) um Kamera und Scanner Komponenten verantwortlich, die mit der Bernina B990 auf den Markt gekommen sind.",
     ],
     imgUrl: "./images/bernina_b990.jpg",
     imgTitle: "Bernina B990 Näh- und Stickmaschine",
